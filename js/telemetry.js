@@ -5,7 +5,7 @@
  * be used to endorse or promote products derived from
  * this software without specific prior written permission.
  */
-export default class Telemetry {
+class Telemetry {
     constructor() {
         this.value = 0;
         this.rating = 3;

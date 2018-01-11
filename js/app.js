@@ -5,9 +5,6 @@
  * be used to endorse or promote products derived from
  * this software without specific prior written permission.
  */
-import Telemetry from './telemetry.js';
-import shuffle from './shuffle.js';
-
 const telemetry = new Telemetry();
 
 let cards = document.querySelectorAll('.card');
@@ -30,13 +27,16 @@ function restartOnClick() {
     cards = shuffle([].slice.call(cards));
 
     document.querySelector('.deck').innerHTML = null;
+    const deck = document.createDocumentFragment();
     cards.forEach((card) => {
         card.classList.remove('open');
         card.classList.remove('match');
         card.classList.remove('show');
 
-        document.querySelector('.deck').appendChild(card);
+        deck.appendChild(card);
     });
+
+    document.querySelector('.deck').appendChild(deck);
 
     // Hide modal
     document.querySelector('.modal-container').classList.add('hidden');
